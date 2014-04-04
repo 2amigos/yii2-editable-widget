@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class EditableAddressAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/editable/assets/address';
+    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/address';
 
     public $css = [
         'bootstrap-editable-address.css'

@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class EditableSelect2Asset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/editable/assets/select2';
+    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/select2';
 
     public $css = [
         'vendor/select2.css'

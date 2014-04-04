@@ -10,7 +10,7 @@ use yii\web\AssetBundle;
 
 class EditableComboDateAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/editable/assets/combodate';
+    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/combodate';
 
     public $js = [
         'vendor/moment-with-langs.min.js',

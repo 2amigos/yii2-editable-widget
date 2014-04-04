@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class EditableWysiHtml5Asset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/editable/assets/wysihtml5';
+    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/wysihtml5';
 
     public $depends = [
         'dosamigos\editable\EditableBootstrapAsset'

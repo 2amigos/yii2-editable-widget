@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class EditableDateTimePickerAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/editable/assets/datetimepicker';
+    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/datetimepicker';
 
     public $depends = [
         'dosamigos\editable\EditableBootstrapAsset'
