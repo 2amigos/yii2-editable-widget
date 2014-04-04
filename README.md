@@ -56,7 +56,7 @@ to the require section of your application's `composer.json` file.
 
 Usage
 -----
-There is amazing site made by [Vitaliy Potapov](https://github.com/vitalets) which shows how to configure the widget. We are not going to explain how to use each one of the again and we encourage you to visit [the documentation section of the plugin's site](http://vitalets.github.io/x-editable/docs.html) 
+There is an amazing site made by [Vitaliy Potapov](https://github.com/vitalets) which shows how to configure the widget. We are not going to explain how to use each one of the again and we encourage you to visit [the documentation section of the plugin's site](http://vitalets.github.io/x-editable/docs.html)
 
 ```
 <?php
