@@ -9,6 +9,7 @@ namespace dosamigos\editable;
 use Yii;
 use yii\base\Action;
 use yii\base\InvalidConfigException;
+use yii\web\BadRequestHttpException;
 
 /**
  * EditableAction is a server side Action that helps to update the record in db.
@@ -52,8 +53,7 @@ class EditableAction extends Action
     /**
      * Runs the action
      * @return bool
-     * @throws \HttpRequestException
-     * @throws \HttpInvalidParamException
+     * @throws BadRequestHttpException
      */
     public function run()
     {
@@ -62,10 +62,10 @@ class EditableAction extends Action
         $attribute = Yii::$app->request->post('name');
         $value = Yii::$app->request->post('value');
         if ($attribute === null) {
-            throw new \HttpInvalidParamException("'name' parameter cannot be empty.");
+            throw new BadRequestHttpException("'name' parameter cannot be empty.");
         }
         if ($value === null) {
-            throw new \HttpInvalidParamException("'value' parameter cannot be empty.");
+            throw new BadRequestHttpException("'value' parameter cannot be empty.");
         }
         /** @var \Yii\db\ActiveRecord $model */
         $model = $class::find($pk);
@@ -73,7 +73,7 @@ class EditableAction extends Action
             if ($this->forceCreate) { // only useful for models with one editable attribute or no validations
                 $model = new $class;
             } else {
-                throw new \HttpRequestException('Entity not found by primary key ' . $pk);
+                throw new BadRequestHttpException('Entity not found by primary key ' . $pk);
             }
         }
         // do we have a preProcess function
@@ -89,7 +89,7 @@ class EditableAction extends Action
             // no need to specify which attributes as Yii2 handles that via [[BaseActiveRecord::getDirtyAttributes]]
             return $model->save(false);
         } else {
-            throw new \HttpRequestException(Yii::t('app', "Error while saving record!"));
+            throw new BadRequestHttpException(Yii::t('app', "Error while saving record!"));
         }
     }
 
