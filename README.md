@@ -11,7 +11,7 @@ We decided to port only the Bootstrap 3 capabilities of [X-Editable Plugin](http
 - Plugins have been all updated to their latest versions 
 - Fixed datepicker and datetimepicker types to work with Bootstrap 3 
 - Refactored widget code to make it easier to understand
-- We have not included **EditableColumn**, **EditableAction**, **EditableListView**, or **EditableDetailView** because we believe they correspond to a different package. They will be developed independently. 
+- We have not included **EditableColumn**, **EditableListView**, or **EditableDetailView** because we believe they correspond to a different package. They will be developed independently. 
 
 So, if you have issues to fix, please remember, **THIS IS NOT** an exact copy of X-Editable, this is a Bootstrap 3 enhanced X-Editable plugin ported to Yii2. 
 
