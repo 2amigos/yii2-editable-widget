@@ -68,7 +68,7 @@ class EditableAction extends Action
             throw new BadRequestHttpException("'value' parameter cannot be empty.");
         }
         /** @var \Yii\db\ActiveRecord $model */
-        $model = $class::find($pk);
+        $model = $class::findOne($pk);
         if (!$model) {
             if ($this->forceCreate) { // only useful for models with one editable attribute or no validations
                 $model = new $class;
@@ -83,7 +83,7 @@ class EditableAction extends Action
         if ($this->scenario !== null) {
             $model->setScenario($this->scenario);
         }
-        $model->setAttribute($attribute, $value);
+        $model->$attribute = $value;
 
         if ($model->validate([$attribute])) {
             // no need to specify which attributes as Yii2 handles that via [[BaseActiveRecord::getDirtyAttributes]]
