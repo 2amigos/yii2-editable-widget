@@ -1,7 +1,7 @@
 X-Editable Widget for Yii2
 ==========================
 
-[![Latest Stable Version](https://poser.pugx.org/2amigos/yii2-editable-widget /v/stable.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![Total Downloads](https://poser.pugx.org/2amigos/yii2-editable-widget/downloads.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![Latest Unstable Version](https://poser.pugx.org/2amigos/yii2-editable-widget/v/unstable.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![License](https://poser.pugx.org/2amigos/yii2-transliterator-helper/license.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget)
+[![Latest Stable Version](https://poser.pugx.org/2amigos/yii2-editable-widget/v/stable.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![Total Downloads](https://poser.pugx.org/2amigos/yii2-editable-widget/downloads.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![Latest Unstable Version](https://poser.pugx.org/2amigos/yii2-editable-widget/v/unstable.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![License](https://poser.pugx.org/2amigos/yii2-transliterator-helper/license.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget)
 
 Renders a [X-Editable Input](http://vitalets.github.io/x-editable/index.html) allowing to use the amazing inline capabilities of [X-Editable Plugin](http://vitalets.github.io/x-editable/index.html). 
 
