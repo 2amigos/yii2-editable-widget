@@ -98,11 +98,22 @@ class Editable extends InputWidget
      */
     public function run()
     {
+        $value = $this->value;
         if ($this->hasModel()) {
-            echo Html::a($this->model->{$this->attribute}, null, $this->options);
+            $model = $this->model;
+            if ($value !== null) {
+                if (is_string($value)) {
+                    $show = ArrayHelper::getValue($model, $value);
+                } else {
+                    $show = call_user_func($value, $model);
+                }
+            } else {
+                $show = ArrayHelper::getValue($model, $this->attribute);
+            }
         } else {
-            echo Html::a($this->value, null, $this->options);
+            $show = $value;
         }
+        echo Html::a($show, null, $this->options);
         $this->registerClientScript();
     }
 
@@ -153,6 +164,12 @@ class Editable extends InputWidget
         }
 
         $id = ArrayHelper::remove($this->clientOptions, 'selector', '#' . $this->options['id']);
+        
+        // Escape meta-characters in element Id
+        // http://api.jquery.com/category/selectors/
+        // This actually only needs to be done for dots, since Html::getInputId
+        // will enforce word-only characters.
+        $id = preg_replace('/([.])/', '\\\\\\\$1', $id);
 
         $this->clientOptions['url'] = Url::toRoute($this->url);
         $this->clientOptions['type'] = $this->type;
