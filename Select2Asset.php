@@ -9,7 +9,7 @@ namespace dosamigos\editable;
 use yii\web\AssetBundle;
 
 /**
- * EditableSelect2Asset
+ * Select2Asset
  *
  * @author Antonio Ramirez <amigo.cobos@gmail.com>
  * @link http://www.ramirezcobos.com/
