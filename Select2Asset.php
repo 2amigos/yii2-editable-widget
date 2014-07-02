@@ -16,16 +16,16 @@ use yii\web\AssetBundle;
  * @link http://www.2amigos.us/
  * @package dosamigos\editable
  */
-class EditableSelect2Asset extends AssetBundle
+class Select2Asset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/select2';
+    public $sourcePath = '@vendor/ivaynberg/select2';
 
-    public $js = [
-        'bootstrap-editable-select2.js'
+    public $css = [
+        'select2.css'
     ];
 
-    public $depends = [
-        'dosamigos\editable\EditableBootstrapAsset',
-        'dosamigos\editable\Select2Asset',
-    ];
+    public function init()
+    {
+        $this->js[] = YII_DEBUG ? 'select2.js' : 'select2.min.js';
+    }
 } 
