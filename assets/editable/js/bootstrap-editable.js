@@ -616,6 +616,7 @@
      Classes 'control-group' and 'editable-error-block' must always present!
      */
     $.fn.editableform.template = '<form class="form-inline editableform" onsubmit="return false;">' +
+        '<input type="hidden" name="' + ((yii && yii.getCsrfParam()) || '_csrf') + '" value="' + (yii && yii.getCsrfToken()) + '">' +
         '<div class="control-group">' +
         '<div><div class="editable-input"></div><div class="editable-buttons"></div></div>' +
         '<div class="editable-error-block"></div>' +
