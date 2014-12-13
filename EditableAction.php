@@ -59,6 +59,7 @@ class EditableAction extends Action
     {
         $class = $this->modelClass;
         $pk = Yii::$app->request->post('pk');
+        $pk = unserialize(base64_decode($key));
         $attribute = Yii::$app->request->post('name');
         $value = Yii::$app->request->post('value');
         if ($attribute === null) {

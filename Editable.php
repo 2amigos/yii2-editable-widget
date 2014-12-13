@@ -175,11 +175,12 @@ class Editable extends InputWidget
         $this->clientOptions['type'] = $this->type;
         $this->clientOptions['mode'] = $this->mode;
         $this->clientOptions['name'] = $this->attribute ? : $this->name;
-        $this->clientOptions['pk'] = ArrayHelper::getValue(
+        $pk = ArrayHelper::getValue(
             $this->clientOptions,
             'pk',
             $this->hasModel() ? $this->model->getPrimaryKey() : null
         );
+        $this->clientOptions['pk'] = base64_encode(serialize($pk));
         if ($this->hasModel() && $this->model->isNewRecord) {
             $this->clientOptions['send'] = 'always'; // send to server without pk
         }
