@@ -69,8 +69,8 @@ class Editable extends InputWidget
      */
     public $clientOptions = [];
     /**
-     * @var array the event handlers for the Selectize.js plugin.
-     * Please refer to the Selectize.js plugin web page for possible options.
+     * @var array the event handlers for the X-editable.js plugin.
+     * Please refer to the X-editable.js plugin web page for possible options.
      * @see http://vitalets.github.io/x-editable/docs.html#editable
      */
     public $clientEvents = [];
