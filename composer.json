@@ -13,7 +13,7 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "ivaynberg/select2": "3.5.0"
+        "bower-asset/select2": "3.5.2"
     },
     "autoload": {
         "psr-4": {

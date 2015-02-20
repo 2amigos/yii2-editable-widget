@@ -18,7 +18,7 @@ use yii\web\AssetBundle;
  */
 class Select2Asset extends AssetBundle
 {
-    public $sourcePath = '@vendor/ivaynberg/select2';
+    public $sourcePath = '@vendor/bower/select2';
 
     public $css = [
         'select2.css'
