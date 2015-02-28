@@ -178,10 +178,10 @@ class Editable extends InputWidget
         $pk = ArrayHelper::getValue(
             $this->clientOptions,
             'pk',
-            $this->hasModel() ? $this->model->getPrimaryKey() : null
+            ($this->hasModel() && $this->model instanceof \yii\db\ActiveRecordInterface) ? $this->model->getPrimaryKey() : null
         );
         $this->clientOptions['pk'] = base64_encode(serialize($pk));
-        if ($this->hasModel() && $this->model->isNewRecord) {
+        if ($this->hasModel() && $this->model instanceof \yii\db\ActiveRecordInterface && $this->model->isNewRecord) {
             $this->clientOptions['send'] = 'always'; // send to server without pk
         }
 
