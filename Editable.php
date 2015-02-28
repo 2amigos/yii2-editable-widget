@@ -178,10 +178,10 @@ class Editable extends InputWidget
         $pk = ArrayHelper::getValue(
             $this->clientOptions,
             'pk',
-            $this->hasModel() ? $this->model->getPrimaryKey() : null
+            $this->hasActiveRecord() ? $this->model->getPrimaryKey() : null
         );
         $this->clientOptions['pk'] = base64_encode(serialize($pk));
-        if ($this->hasModel() && $this->model->isNewRecord) {
+        if ($this->hasActiveRecord() && $this->model->isNewRecord) {
             $this->clientOptions['send'] = 'always'; // send to server without pk
         }
 
@@ -198,4 +198,15 @@ class Editable extends InputWidget
         }
 
     }
+    
+    /**
+     * To ensure that `getPrimaryKey()` and `getIsNewRecord()` methods are implemented in model.
+     * You can override this method if your model in not instance of `ActiveRecord` but simulates its behavior with these methods.
+     * @return bool
+     */
+    protected function hasActiveRecord()
+    {
+        return $this->hasModel() && $this->model instanceof \yii\db\ActiveRecordInterface;
+    }
+    
 } 
