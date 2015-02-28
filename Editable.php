@@ -200,7 +200,7 @@ class Editable extends InputWidget
     }
     
     /**
-     * To ensure that `getPrimaryKey()` and `getIsNewRecord()` methods are implemented in mode.
+     * To ensure that `getPrimaryKey()` and `getIsNewRecord()` methods are implemented in model.
      * You can override this method if your model in not instance of `ActiveRecord` but simulates its behavior with these methods.
      * @return bool
      */
