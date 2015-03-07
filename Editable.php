@@ -154,7 +154,7 @@ class Editable extends InputWidget
                 EditableSelect2Asset::register($view);
                 break;
             case 'wysihtml5':
-                $language = $language ? : 'en-US';
+                $language = $language ?: 'en-US';
                 EditableWysiHtml5Asset::register(
                     $view
                 )->js[] = 'vendor/locales/bootstrap-wysihtml5.' . $language . '.js';
@@ -164,17 +164,18 @@ class Editable extends InputWidget
         }
 
         $id = ArrayHelper::remove($this->clientOptions, 'selector', '#' . $this->options['id']);
-        
+
         // Escape meta-characters in element Id
         // http://api.jquery.com/category/selectors/
         // This actually only needs to be done for dots, since Html::getInputId
         // will enforce word-only characters.
         $id = preg_replace('/([.])/', '\\\\\\\$1', $id);
 
-        $this->clientOptions['url'] = Url::toRoute($this->url);
+        $this->clientOptions['url'] = $this->url instanceof JsExpression
+            ? $this->url : Url::toRoute($this->url);
         $this->clientOptions['type'] = $this->type;
         $this->clientOptions['mode'] = $this->mode;
-        $this->clientOptions['name'] = $this->attribute ? : $this->name;
+        $this->clientOptions['name'] = $this->attribute ?: $this->name;
         $pk = ArrayHelper::getValue(
             $this->clientOptions,
             'pk',
@@ -198,4 +199,4 @@ class Editable extends InputWidget
         }
 
     }
-} 
+}
