@@ -12,6 +12,8 @@
 
 namespace tests;
 
+use dosamigos\editable\EditableAction;
+use tests\data\models\Post;
 use Yii;
 use yii\web\Controller;
 
@@ -35,7 +37,11 @@ class FakeController extends Controller
 
     public function actions() {
         return [
-            ''
+            'update' => [
+                'class' => EditableAction::className(),
+                'modelClass' => Post::className(),
+                'forceCreate' => false
+            ]
         ];
     }
 }
