@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2013 2amigOS! Consulting Group LLC
+ * @copyright Copyright (c) 2013-2015 2amigOS! Consulting Group LLC
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
@@ -18,7 +18,9 @@ use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\web\JsExpression;
 use yii\widgets\InputWidget;
+use yii\db\ActiveRecordInterface;
 
 /**
  * Editable renders the amazing x-editable js plugin from vitalets. For more information please visit the
@@ -171,8 +173,7 @@ class Editable extends InputWidget
         // will enforce word-only characters.
         $id = preg_replace('/([.])/', '\\\\\\\$1', $id);
 
-        $this->clientOptions['url'] = $this->url instanceof JsExpression
-            ? $this->url : Url::toRoute($this->url);
+        $this->clientOptions['url'] = $this->url instanceof JsExpression ? $this->url : Url::toRoute($this->url);
         $this->clientOptions['type'] = $this->type;
         $this->clientOptions['mode'] = $this->mode;
         $this->clientOptions['name'] = $this->attribute ?: $this->name;
@@ -197,7 +198,6 @@ class Editable extends InputWidget
             }
             $view->registerJs(implode("\n", $js));
         }
-
     }
 
     /**
@@ -207,7 +207,7 @@ class Editable extends InputWidget
      */
     protected function hasActiveRecord()
     {
-        return $this->hasModel() && $this->model instanceof \yii\db\ActiveRecordInterface;
+        return $this->hasModel() && $this->model instanceof ActiveRecordInterface;
     }
 
 }

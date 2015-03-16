@@ -1,7 +1,12 @@
 X-Editable Widget for Yii2
 ==========================
 
-[![Latest Stable Version](https://poser.pugx.org/2amigos/yii2-editable-widget/v/stable.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![Total Downloads](https://poser.pugx.org/2amigos/yii2-editable-widget/downloads.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![Latest Unstable Version](https://poser.pugx.org/2amigos/yii2-editable-widget/v/unstable.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget) [![License](https://poser.pugx.org/2amigos/yii2-transliterator-helper/license.svg)](https://packagist.org/packages/2amigos/yii2-editable-widget)
+[![Latest Version](https://img.shields.io/github/tag/2amigos/yii2-editable-widget.svg?style=flat-square&label=release)](https://github.com/2amigos/yii2-editable-widget/tags)
+[![Software License](https://img.shields.io/badge/license-BSD-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://img.shields.io/travis/2amigos/yii2-editable-widget/master.svg?style=flat-square)](https://travis-ci.org/2amigos/yii2-editable-widget)
+[![Coverage Status](https://img.shields.io/scrutinizer/coverage/g/2amigos/yii2-editable-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-editable-widget/code-structure)
+[![Quality Score](https://img.shields.io/scrutinizer/g/2amigos/yii2-editable-widget.svg?style=flat-square)](https://scrutinizer-ci.com/g/2amigos/yii2-editable-widget)
+[![Total Downloads](https://img.shields.io/packagist/dt/2amigos/yii2-editable-widget.svg?style=flat-square)](https://packagist.org/packages/2amigos/yii2-editable-widget)
 
 Renders a [X-Editable Input](http://vitalets.github.io/x-editable/index.html) allowing to use the amazing inline capabilities of [X-Editable Plugin](http://vitalets.github.io/x-editable/index.html). 
 
@@ -25,17 +30,17 @@ So keep this in mind:
 - It does not work with JQuery UI or as plain JQuery, just Bootstrap and latest version only (not 2.3.2 sorry)
 - If you wish to help improve the library do it, but do not update the library thinking this is the same as X-Editable source, it has been modified. 
 - The supported types are:
-	- text 
-	- textarea 
-	- select 
-	- date 
-	- datetime 
-	- combodate 
-	- html5 types 
-	- checklist 
-	- wysihtml5
-	- select2 
-	- No typeaheadJs - ready for the challenge?
+    - text 
+    - textarea 
+    - select 
+    - date 
+    - datetime 
+    - combodate 
+    - html5 types 
+    - checklist 
+    - wysihtml5
+    - select2 
+    - No typeaheadJs - ready for the challenge?
 
 
 Installation
@@ -45,12 +50,12 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require "2amigos/yii2-editable-widget" "*"
+composer require 2amigos/yii2-editable-widget:~1.0
 ```
 or add
 
 ```json
-"2amigos/yii2-editable-widget" : "*"
+"2amigos/yii2-editable-widget" : "~1.0"
 ```
 
 to the require section of your application's `composer.json` file.
@@ -68,41 +73,41 @@ use dosamigos\editable\Editable;
 ?>
 
 <?= Editable::widget( [
-	'model' => $model,
-	'attribute' => 'created_at',
-	'url' => 'site/test',
-	'type' => 'datetime',
-	'mode' => 'pop',
-	'clientOptions' => [
-		'placement' => 'right',
-		'format' => 'yyyy-mm-dd hh:ii',
-		'viewformat' => 'dd/mm/yyyy hh:ii',
-		'datetimepicker' => [
-			'orientation' => 'top auto'
-   		]
-	]
+    'model' => $model,
+    'attribute' => 'created_at',
+    'url' => 'site/test',
+    'type' => 'datetime',
+    'mode' => 'pop',
+    'clientOptions' => [
+        'placement' => 'right',
+        'format' => 'yyyy-mm-dd hh:ii',
+        'viewformat' => 'dd/mm/yyyy hh:ii',
+        'datetimepicker' => [
+            'orientation' => 'top auto'
+           ]
+    ]
 ]);?>
 <?php 
 
 // as a widget without a model and a select2 type
 ?>
 <?= Editable::widget( [
-	'name' => 'country_code',
-	'value' => '',
-	'url' => 'site/test',
-	'type' => 'select2',
-	'mode' => 'pop',
-	'clientOptions' => [
-		'pk' => 2,
-		'placement' => 'right',
-		'select2' => [
-			'width' => '124px'
-		],
-		'source' => [
-			['id' => 'gb', 'text' => 'Great Britain'],
-			['id' => 'es', 'text' => 'Spain'],
-		],
-	]
+    'name' => 'country_code',
+    'value' => '',
+    'url' => 'site/test',
+    'type' => 'select2',
+    'mode' => 'pop',
+    'clientOptions' => [
+        'pk' => 2,
+        'placement' => 'right',
+        'select2' => [
+            'width' => '124px'
+        ],
+        'source' => [
+            ['id' => 'gb', 'text' => 'Great Britain'],
+            ['id' => 'es', 'text' => 'Spain'],
+        ],
+    ]
 ]);?>
 
 <?php 
@@ -111,30 +116,63 @@ use dosamigos\editable\Editable;
 use dosamigos\editable\Editable;
 ?>
 <?= $form->field($model, 'address')->widget(Editable::className(), [
-	'url' => 'site/test',
-	'type' => 'address'
+    'url' => 'site/test',
+    'type' => 'address'
 ]);?>
 
 <?php 
 // as datetime type input
 <?= $form->field($model, 'created_at')->widget(Editable::className(), [
-	'url' => 'site/test',
-	'type' => 'datetime',
-	'mode' => 'pop',
-	'clientOptions' => [
-		'placement' => 'right',
-		'format' => 'yyyy-mm-dd hh:ii',
-		'viewformat' => 'dd/mm/yyyy hh:ii',
-		'datepicker' => [
-			'orientation' => 'top auto'
-		]            
-	]
+    'url' => 'site/test',
+    'type' => 'datetime',
+    'mode' => 'pop',
+    'clientOptions' => [
+        'placement' => 'right',
+        'format' => 'yyyy-mm-dd hh:ii',
+        'viewformat' => 'dd/mm/yyyy hh:ii',
+        'datepicker' => [
+            'orientation' => 'top auto'
+        ]            
+    ]
 ]);?>
 ```
 
+Testing
+-------
+
+To test the extension, is better to clone this repository on your computer. After, go to the extensions folder and do
+the following (assuming you have `composer` installed on your computer): 
+
+```bash 
+$ composer install --no-interaction --prefer-source --dev
+```
+Once all required libraries are installed then do: 
+
+```bash 
+$ vendor/bin/phpunit
+```
+
+
 Further Information
 -------------------
-Please, check the [X-Editable Plugin](http://vitalets.github.io/x-editable/index.html) documentation for further information about its configuration options. 
+Please, check the [X-Editable Plugin](http://vitalets.github.io/x-editable/index.html) documentation for further 
+information about its configuration options. 
+
+Contributing
+------------
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+Credits
+-------
+
+- [Antonio Ramirez](https://github.com/tonydspaniard)
+- [All Contributors](../../contributors)
+
+License
+-------
+
+The BSD License (BSD). Please see [License File](LICENSE.md) for more information.
 
 
 > [![2amigOS!](http://www.gravatar.com/avatar/55363394d72945ff7ed312556ec041e0.png)](http://www.2amigos.us)  

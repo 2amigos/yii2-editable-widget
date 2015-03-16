@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2013 2amigOS! Consulting Group LLC
+ * @copyright Copyright (c) 2013-2015 2amigOS! Consulting Group LLC
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
@@ -9,28 +9,23 @@ namespace dosamigos\editable;
 use yii\web\AssetBundle;
 
 /**
- * EditableBootstrapAsset
+ * EditableSelect2Asset
  *
  * @author Antonio Ramirez <amigo.cobos@gmail.com>
  * @link http://www.ramirezcobos.com/
  * @link http://www.2amigos.us/
  * @package dosamigos\editable
  */
-class EditableBootstrapAsset extends AssetBundle
+class EditableSelect2Asset extends AssetBundle
 {
-    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/assets/editable';
-
-    public $css = [
-        'css/bootstrap-editable.css'
-    ];
+    public $sourcePath = '@vendor/2amigos/yii2-editable-widget/src/assets/select2';
 
     public $js = [
-        'js/bootstrap-editable.js'
+        'bootstrap-editable-select2.js'
     ];
 
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapPluginAsset',
+        'dosamigos\editable\EditableBootstrapAsset',
+        'dosamigos\editable\Select2Asset',
     ];
-
-} 
+}
