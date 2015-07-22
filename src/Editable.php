@@ -43,8 +43,8 @@ class Editable extends InputWidget
     public $mode = 'inline';
     /**
      * @var string optional input id
-     * /
-    public $id;
+     */
+     public $id;
     /**
      * @var string|array Url for submit, e.g. '/post'. If function - it will be called instead of ajax. Function should
      * return deferred object to run fail/done callbacks.
