@@ -42,6 +42,14 @@ class Editable extends InputWidget
      */
     public $mode = 'inline';
     /**
+     * @var string optional input id
+     */
+    public $id;
+    /**
+     * @var string placement of bootstrap popover
+     */
+    public $placement = 'top';
+    /**
      * @var string|array Url for submit, e.g. '/post'. If function - it will be called instead of ajax. Function should
      * return deferred object to run fail/done callbacks.
      *
@@ -88,7 +96,7 @@ class Editable extends InputWidget
             throw new InvalidConfigException("'Url' property must be specified.");
         }
         if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->hasModel()
+            $this->options['id'] = $this->hasModel() && empty($this->id)
                 ? Html::getInputId($this->model, $this->attribute)
                 : $this->getId();
         }
@@ -177,6 +185,7 @@ class Editable extends InputWidget
         $this->clientOptions['type'] = $this->type;
         $this->clientOptions['mode'] = $this->mode;
         $this->clientOptions['name'] = $this->attribute ?: $this->name;
+        $this->clientOptions['placement'] = $this->placement;
         $pk = ArrayHelper::getValue(
             $this->clientOptions,
             'pk',
