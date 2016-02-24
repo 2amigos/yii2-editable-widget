@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2013-2015 2amigOS! Consulting Group LLC
+ * @copyright Copyright (c) 2013 2amigOS! Consulting Group LLC
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
@@ -38,10 +38,6 @@ class EditableAction extends Action
      * @var bool whether to create a model if a primary key parameter was not found.
      */
     public $forceCreate = true;
-    /**
-     * @var null|array allowed attribute names to be changed. If null, all attributes are allowed.
-     */
-    public $allowedAttributes = null;
 
     /**
      * @inheritdoc
@@ -72,10 +68,7 @@ class EditableAction extends Action
         if ($value === null) {
             throw new BadRequestHttpException("'value' parameter cannot be empty.");
         }
-        if (is_array($this->allowedAttributes) && !in_array($attribute, $this->allowedAttributes)) {
-            throw new BadRequestHttpException("Attribute '$attribute' is not allowed to updated.");
-        }
-        /** @var \yii\db\ActiveRecord $model */
+        /** @var \Yii\db\ActiveRecord $model */
         $model = $class::findOne($pk);
         if (!$model) {
             if ($this->forceCreate) { // only useful for models with one editable attribute or no validations
@@ -101,4 +94,4 @@ class EditableAction extends Action
         }
     }
 
-}
+} 
