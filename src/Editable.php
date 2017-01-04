@@ -109,21 +109,16 @@ class Editable extends InputWidget
     public function run()
     {
         $value = $this->value;
-        if ($this->hasModel()) {
-            $model = $this->model;
-            if ($value !== null) {
-                if (is_string($value)) {
-                    $show = ArrayHelper::getValue($model, $value);
-                } else {
-                    $show = call_user_func($value, $model);
-                }
-            } else {
-                $show = ArrayHelper::getValue($model, $this->attribute);
-            }
+        if ($this->hasModel() && $value === null) {
+            $show = ArrayHelper::getValue($this->model, $this->attribute);
+        } elseif(is_callable($value)) {
+            $show = call_user_func($value, $this->model);
         } else {
             $show = $value;
         }
+        
         echo Html::a($show, null, $this->options);
+        
         $this->registerClientScript();
     }
 
