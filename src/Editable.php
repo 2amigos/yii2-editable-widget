@@ -96,9 +96,7 @@ class Editable extends InputWidget
             throw new InvalidConfigException("'Url' property must be specified.");
         }
         if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->hasModel() && empty($this->id)
-                ? Html::getInputId($this->model, $this->attribute)
-                : $this->getId();
+            $this->options['id'] = $this->getId();
         }
         parent::init();
     }
