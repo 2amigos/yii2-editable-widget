@@ -89,9 +89,7 @@ class EditableAction extends Action
         if ($model->validate([$attribute])) {
             // no need to specify which attributes as Yii2 handles that via [[BaseActiveRecord::getDirtyAttributes]]
             return $model->save(false);
-        } else {
-            throw new BadRequestHttpException($model->getFirstError($attribute));
         }
+        throw new BadRequestHttpException($model->getFirstError($attribute));
     }
-
-} 
+}

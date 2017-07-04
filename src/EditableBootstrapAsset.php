@@ -32,5 +32,4 @@ class EditableBootstrapAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
     ];
-
 }

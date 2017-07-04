@@ -31,5 +31,4 @@ class EditableAddressAsset extends AssetBundle
     public $depends = [
         'dosamigos\editable\EditableBootstrapAsset'
     ];
-
 }

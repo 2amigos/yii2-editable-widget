@@ -6,21 +6,14 @@
  */
 namespace dosamigos\editable;
 
-use dosamigos\editable\EditableAddressAsset;
-use dosamigos\editable\EditableBootstrapAsset;
-use dosamigos\editable\EditableComboDateAsset;
-use dosamigos\editable\EditableDatePickerAsset;
-use dosamigos\editable\EditableDateTimePickerAsset;
-use dosamigos\editable\EditableSelect2Asset;
-use dosamigos\editable\EditableWysiHtml5Asset;
 use yii\base\InvalidConfigException;
+use yii\db\ActiveRecordInterface;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\JsExpression;
 use yii\widgets\InputWidget;
-use yii\db\ActiveRecordInterface;
 
 /**
  * Editable renders the amazing x-editable js plugin from vitalets. For more information please visit the
@@ -109,7 +102,7 @@ class Editable extends InputWidget
         $value = $this->value;
         if ($this->hasModel() && $value === null) {
             $show = ArrayHelper::getValue($this->model, $this->attribute);
-        } elseif(is_callable($value)) {
+        } elseif (is_callable($value)) {
             $show = call_user_func($value, $this->model);
         } else {
             $show = $value;
@@ -211,5 +204,4 @@ class Editable extends InputWidget
     {
         return $this->hasModel() && $this->model instanceof ActiveRecordInterface;
     }
-
 }

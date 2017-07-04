@@ -32,5 +32,4 @@ class EditableDatePickerAsset extends AssetBundle
     public $depends = [
         'dosamigos\editable\EditableBootstrapAsset'
     ];
-
 }

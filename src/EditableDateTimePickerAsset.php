@@ -31,5 +31,4 @@ class EditableDateTimePickerAsset extends AssetBundle
         $this->js[] = 'bootstrap-editable-datetimepicker.js';
         parent::init();
     }
-
 }
