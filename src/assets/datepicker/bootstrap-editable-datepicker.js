@@ -13,8 +13,8 @@
  <script>
  $(function(){
     $('#dob').editable({
-        format: 'yyyy-mm-dd',    
-        viewformat: 'dd/mm/yyyy',    
+        format: 'yyyy-mm-dd',
+        viewformat: 'dd/mm/yyyy',
         datepicker: {
                 weekStart: 1
            }
@@ -120,6 +120,7 @@
         },
 
         clear: function () {
+            this.$input.bdatepicker('update', null);
             this.$input.data('datepicker').date = null;
             this.$input.find('.active').removeClass('active');
             if (!this.options.showbuttons) {
@@ -259,7 +260,7 @@
             this.setClass();
             this.setAttr('placeholder');
 
-            //bootstrap-datepicker is set `bdateicker` to exclude conflict with jQuery UI one. (in date.js)        
+            //bootstrap-datepicker is set `bdateicker` to exclude conflict with jQuery UI one. (in date.js)
             this.$tpl.bdatepicker(this.options.datepicker);
 
             //need to disable original event handlers
