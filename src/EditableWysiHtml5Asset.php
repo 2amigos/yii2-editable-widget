@@ -20,15 +20,17 @@ class EditableWysiHtml5Asset extends AssetBundle
 {
     public $sourcePath = '@vendor/2amigos/yii2-editable-widget/src/assets/wysihtml5';
 
+    public $css = [
+        'vendor/bootstrap3-wysihtml5.css'
+    ];
+
+    public $js = [
+        'vendor/wysihtml5-0.3.0.js',
+        'vendor/bootstrap3-wysihtml5.all.min.js',
+        'bootstrap-editable-wysihtml5.js'
+    ];
+
     public $depends = [
         'dosamigos\editable\EditableBootstrapAsset'
     ];
-
-    public function init()
-    {
-        $this->css[] = YII_DEBUG ? 'vendor/bootstrap3-wysihtml5.css' : 'vendor/bootstrap3-wysihtml5.min.css';
-        $this->js[] = YII_DEBUG ? 'vendor/wysihtml5-0.3.0.js' : 'vendor/wysihtml5-0.3.0.min.js';
-        $this->js[] = YII_DEBUG ? 'vendor/bootstrap3-wysihtml5.all.min.js' : 'vendor/bootstrap3-wysihtml5.all.min.js';
-        $this->js[] = 'bootstrap-editable-wysihtml5.js';
-    }
 }

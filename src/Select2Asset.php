@@ -18,14 +18,13 @@ use yii\web\AssetBundle;
  */
 class Select2Asset extends AssetBundle
 {
-    public $sourcePath = '@bower/select2';
+    public $sourcePath = '@bower/select2/dist';
 
     public $css = [
-        'select2.css'
+        'css/select2.css'
     ];
 
-    public function init()
-    {
-        $this->js[] = YII_DEBUG ? 'select2.js' : 'select2.min.js';
-    }
+    public $js = [
+        'js/select2.full.js'
+    ];
 }

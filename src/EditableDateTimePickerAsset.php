@@ -4,6 +4,7 @@
  * @link http://2amigos.us
  * @license http://www.opensource.org/licenses/bsd-license.php New BSD License
  */
+
 namespace dosamigos\editable;
 
 use yii\web\AssetBundle;
@@ -20,15 +21,17 @@ class EditableDateTimePickerAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/2amigos/yii2-editable-widget/src/assets/datetimepicker';
 
-    public $depends = [
-        'dosamigos\editable\EditableBootstrapAsset'
+    public $css = [
+        'vendor/css/bootstrap-datetimepicker.css',
+
+    ];
+    public $js = [
+        'vendor/js/bootstrap-datetimepicker.js',
+        'bootstrap-editable-datetimepicker.js'
     ];
 
-    public function init()
-    {
-        $this->css[] = YII_DEBUG ? 'vendor/css/bootstrap-datetimepicker.css' : 'vendor/css/bootstrap-datetimepicker.min.css';
-        $this->js[] = YII_DEBUG ? 'vendor/js/bootstrap-datetimepicker.js' : 'vendor/js/bootstrap-datetimepicker.min.js';
-        $this->js[] = 'bootstrap-editable-datetimepicker.js';
-        parent::init();
-    }
+    public $depends = [
+        'dosamigos\editable\EditableBootstrapAsset',
+
+    ];
 }
