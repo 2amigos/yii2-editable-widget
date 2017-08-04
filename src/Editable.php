@@ -101,7 +101,7 @@ class Editable extends InputWidget
     {
         $value = $this->value;
         if ($this->hasModel() && $value === null) {
-            $show = ArrayHelper::getValue($this->model, $this->attribute);
+            $show = Html::getAttributeValue($this->model, $this->attribute);
         } elseif (is_callable($value)) {
             $show = call_user_func($value, $this->model);
         } else {
