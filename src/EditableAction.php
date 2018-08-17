@@ -84,7 +84,9 @@ class EditableAction extends Action
         if ($this->scenario !== null) {
             $model->setScenario($this->scenario);
         }
-        $model->$attribute = $value;
+        $model->setAttributes([
+            $attribute => $value
+        ]);
 
         if ($model->validate([$attribute])) {
             // no need to specify which attributes as Yii2 handles that via [[BaseActiveRecord::getDirtyAttributes]]
