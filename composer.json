@@ -27,7 +27,7 @@
     },
     "require": {
         "yiisoft/yii2": "~2.0.5",
-        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-bootstrap5": "*",
         "bower-asset/select2": "~4.0"
     },
     "require-dev": {
